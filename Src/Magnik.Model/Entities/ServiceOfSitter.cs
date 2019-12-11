@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Magnik.Model.Entities
 {
+    [Table("ServiceOfSitter")]
     public class ServiceOfSitter
     {
+        [Key]
         public int ID_ServiceOfSitter { get; set; }
 
         public string TitleService { get; set; }
@@ -14,10 +18,12 @@ namespace Magnik.Model.Entities
 
         public double PriceService { get; set; }
 
-        public string AccountID { get; set; }
+        [ForeignKey("AccountId")]
+        public string AccountId { get; set; }
         public Account Account { get; set; }
 
-        public int OrderID { get; set; }
+        [ForeignKey("OrderId")]
+        public int OrderId { get; set; }
         public Order Order { get; set; }
     }
 }

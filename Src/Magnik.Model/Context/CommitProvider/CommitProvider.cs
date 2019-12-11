@@ -6,14 +6,16 @@ namespace Magnik.Model.Context.CommitProvider
 {
     public class CommitProvider : ICommitProvider
     {
-        public CommitProvider()
+        private readonly IDatabaseContext _databaseContext;
+
+        public CommitProvider(IDatabaseContext databaseContext)
         {
-                
+            _databaseContext = databaseContext;
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _databaseContext.SaveChanges();
         }
     }
 }

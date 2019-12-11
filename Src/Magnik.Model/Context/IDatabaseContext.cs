@@ -23,6 +23,8 @@ namespace Magnik.Model.Context
 
         DbSet<Order> Orders { get; set; }
 
+        DbSet<Comment> Comments { get; set; }
+
         EntityEntry Entry(object item);
 
         int SaveChanges();

@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Magnik.DataProvider\Magnik.DataProvider.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,6 @@ namespace Magnik.Model.Context
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -28,5 +27,7 @@ namespace Magnik.Model.Context
         public DbSet<ServiceOfSitter> ServiceOfSitters { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
     }
 }

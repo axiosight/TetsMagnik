@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.Common", "Magnik.Common\Magnik.Common.csproj", "{0710FA0A-D509-4E57-91D1-DDFFBD02CE22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnik.Common", "Magnik.Common\Magnik.Common.csproj", "{0710FA0A-D509-4E57-91D1-DDFFBD02CE22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.Logic", "Magnik.Logic\Magnik.Logic.csproj", "{B1DAB9CA-A6D8-4F60-9068-4A7D125A7E73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnik.Logic", "Magnik.Logic\Magnik.Logic.csproj", "{B1DAB9CA-A6D8-4F60-9068-4A7D125A7E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.Model", "Magnik.Model\Magnik.Model.csproj", "{B1869E30-B2A6-49A1-880A-58AE8E9EC84A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnik.Model", "Magnik.Model\Magnik.Model.csproj", "{B1869E30-B2A6-49A1-880A-58AE8E9EC84A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.DataProvider", "Magnik.DataProvider\Magnik.DataProvider.csproj", "{B50436E7-CFF7-4564-BFF4-FD434CAA6717}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magnik.DataProvider", "Magnik.DataProvider\Magnik.DataProvider.csproj", "{B50436E7-CFF7-4564-BFF4-FD434CAA6717}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.Web", "Magnik.Web\Magnik.Web.csproj", "{7628F336-5922-4251-B6B2-C5364A5EEE34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magnik.Web", "Magnik.Web\Magnik.Web.csproj", "{DFE281FC-D2B1-49E0-B84D-64672E9CB4D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{B50436E7-CFF7-4564-BFF4-FD434CAA6717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50436E7-CFF7-4564-BFF4-FD434CAA6717}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50436E7-CFF7-4564-BFF4-FD434CAA6717}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7628F336-5922-4251-B6B2-C5364A5EEE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7628F336-5922-4251-B6B2-C5364A5EEE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7628F336-5922-4251-B6B2-C5364A5EEE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7628F336-5922-4251-B6B2-C5364A5EEE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFE281FC-D2B1-49E0-B84D-64672E9CB4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFE281FC-D2B1-49E0-B84D-64672E9CB4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFE281FC-D2B1-49E0-B84D-64672E9CB4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFE281FC-D2B1-49E0-B84D-64672E9CB4D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

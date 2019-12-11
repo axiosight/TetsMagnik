@@ -24,5 +24,7 @@ namespace Magnik.Model.Entities
         public ICollection<ServiceOfSitter> ServiceOfSitters { get; set; }
 
         public ICollection<Order> Orders { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 }
