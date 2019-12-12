@@ -12,7 +12,7 @@ namespace Magnik.Model.Entities
         [Key]
         public int ID_Pet { get; set; }
 
-        public byte[] PetImg { get; set; }
+        public string PetImg { get; set; }
 
         public string PetName { get; set; }
 

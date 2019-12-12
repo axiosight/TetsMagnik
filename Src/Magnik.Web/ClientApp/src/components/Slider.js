@@ -9,7 +9,7 @@ export class Slider extends Component {
         return (
             <Carousel>
                 <Carousel.Item>
-                    <img className="d-block w-100" src={imgSecond} alt="First slide" />
+                    <img className="d-block w-100" src={imgSecond} alt="First slide"/>
                     <Carousel.Caption>
                         <h3>Get paid to play with dogs</h3>
                         <p>Our app makes it easy and promotes you to the nation’s largest network of pet parents.</p>

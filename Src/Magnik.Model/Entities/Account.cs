@@ -7,7 +7,7 @@ namespace Magnik.Model.Entities
 {
     public class Account : IdentityUser
     {
-        public byte[] UserImg { get; set; }
+        public string UserImg { get; set; }
 
         public string UName { get; set; }
 

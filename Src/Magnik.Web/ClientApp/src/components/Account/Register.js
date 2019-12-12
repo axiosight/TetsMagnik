@@ -1,42 +1,37 @@
 import React, { Component } from 'react'
-import { Row, Form, Button } from 'react-bootstrap'
-import { Container } from 'reactstrap';
+import { Row, Form, Button, Card } from 'react-bootstrap'
 
 export class Register extends Component {
     render() {
         return (
-            <Container>
-                <Row className="justify-content-md-center">
+            <Row>
+                <Card className="text-center border p-5 mb-4 col-md-6 offset-md-3 box-shadow" style={{ width: '23rem', backgroundColor: '#faf7f7' }}>
                     <Form>
+                        <Form.Text className="m-4" style={{fontSize: '20pt'}}><strong>Sign Up</strong></Form.Text>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="email" placeholder="Enter email" />
                             <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formBasicName">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your name" />
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your name" />
                         </Form.Group>
                         <Form.Group controlId="formBasicSurname">
-                            <Form.Label>Surname</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your surname" />
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your surname" />
                         </Form.Group>
-                        <Form.Group controlId="formBasicName">
-                            <Form.Label>Phone</Form.Label>
-                            <Form.Control type="tel" placeholder="Enter your phone" />
+                        <Form.Group controlId="formBasicPhone">
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="tel" placeholder="Enter your phone" />
+                            <Form.Text className="text-muted">Format for tel +375(XX)XXX-XX-XX</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="password" placeholder="Password" />
                         </Form.Group>
                         <Form.Group controlId="formBasicConfirmPassword">
-                            <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password" />
+                            <Form.Control className="mb-2 col-md-8 offset-md-2" type="password" placeholder="Confirm Password" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">Submit</Button>
+                        <Button className="mb-2 col-md-4" variant="primary" type="submit">Submit</Button>
                     </Form>
-                </Row>
-            </Container>
+                </Card>
+            </Row>
         );
     }
 }
