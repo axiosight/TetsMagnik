@@ -7,7 +7,7 @@ import imgThird from './slide3.jpg';
 export class Slider extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel className="border" style={{boxShadow: '7px 7px 12px #cccccc'}}>
                 <Carousel.Item>
                     <img className="d-block w-100" src={imgSecond} alt="First slide"/>
                     <Carousel.Caption>

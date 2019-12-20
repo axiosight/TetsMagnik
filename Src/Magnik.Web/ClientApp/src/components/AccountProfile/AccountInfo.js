@@ -8,16 +8,16 @@ export class AccountInfo extends Component {
             <div className="mt-2">
                 <Row>
                     <Col xs={6} md={4}>
-                        <Card className="mb-2" style={{ width: '23rem' }}>
+                        <Card className="mb-2" style={{ width: '23rem', boxShadow: '5px 5px 10px #cccccc' }}>
                             <Row>
                                 <Card.Body className="text-center">
-                                    <Image style={{ width: '151px', height: '162px', }} src={logo} alt="Logo" roundedCircle />
+                                    <Image style={{ width: '151px', height: '162px', boxShadow: '5px 5px 10px #cccccc' }} src={logo} alt="Logo" roundedCircle />
                                     <hr />
-                                    <Button className="m-0" variant="outline-success" size="sm">Update Profile</Button>
+                                    <Button className="m-0" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-success" size="sm">Update Profile</Button>
                                 </Card.Body>
                             </Row>
                         </Card>
-                        <Card className="mb-2" style={{ width: '23rem' }}>
+                        <Card className="mb-2" style={{ width: '23rem', boxShadow: '5px 5px 10px #cccccc' }}>
                             <Card.Body>
                                 <Card.Text>
                                     <p className="text-center"><em>Comments: </em></p>
@@ -29,7 +29,7 @@ export class AccountInfo extends Component {
                         </Card>
                     </Col>
                     <Col xs={12} md={4}>
-                        <Card className="mb-2" style={{ width: '46rem' }}>
+                        <Card className="mb-2" style={{ width: '46rem', boxShadow: '5px 5px 10px #cccccc' }}>
                             <Card.Body style={{height: '430px'}}>
                                 <Card.Title><em>Hi, Niktos.V@tut.by</em></Card.Title>
                                 <Card.Text>

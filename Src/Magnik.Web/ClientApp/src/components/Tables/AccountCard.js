@@ -12,12 +12,11 @@ var bgColors = {
     "Yellow": "#F6BB42",
 };
 
-
 export class AccountCard extends Component {
     render() {
         return (
             <Row>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>
@@ -33,7 +32,7 @@ export class AccountCard extends Component {
                         <Button variant="outline-success">View</Button>
                     </Card.Body>
                 </Card>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>
@@ -49,7 +48,7 @@ export class AccountCard extends Component {
                         <Button variant="outline-success">View</Button>
                     </Card.Body>
                 </Card>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>
@@ -65,7 +64,7 @@ export class AccountCard extends Component {
                         <Button variant="outline-success">View</Button>
                     </Card.Body>
                 </Card>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>
@@ -81,7 +80,7 @@ export class AccountCard extends Component {
                         <Button variant="outline-success">View</Button>
                     </Card.Body>
                 </Card>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>
@@ -97,7 +96,7 @@ export class AccountCard extends Component {
                         <Button variant="outline-success">View</Button>
                     </Card.Body>
                 </Card>
-                <Card className="m-1" style={{ width: '23rem', backgroundColor: bgColors.Default }}>
+                <Card className="m-1 mb-2" style={{ width: '23rem', backgroundColor: bgColors.Default, boxShadow: '7px 7px 12px #cccccc' }}>
                     <Card.Body className="text-center">
                         <Image style={{ width: '171px', height: '180px', }} src={logo} alt="Logo" roundedCircle />
                     </Card.Body>

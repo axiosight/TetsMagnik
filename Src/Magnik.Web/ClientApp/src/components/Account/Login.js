@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 export class Login extends Component {
     render() {
         return (
-            <Row className="">
-                <Card className="text-center border p-5 mb-4 col-md-6 offset-md-3 box-shadow" style={{ width: '23rem', backgroundColor: '#faf7f7' }}>
+            <Row>
+                <Card className="text-center border p-5 mb-4 col-md-6 offset-md-3 box-shadow" style={{ width: '23rem', backgroundColor: '#faf7f7', boxShadow: '5px 5px 10px #cccccc' }}>
                     <Form>
                         <Form.Text className="m-4" style={{ fontSize: '20pt' }}><strong>Sign In</strong></Form.Text>
                         <Form.Group controlId="formBasicEmail">
@@ -17,7 +17,7 @@ export class Login extends Component {
                         <Form.Group controlId="formBasicPassword">
                             <Form.Control className="mb-2 col-md-8 offset-md-2" type="password" placeholder="Password" />
                         </Form.Group>
-                        <Button className="mb-2 col-md-4" variant="primary" type="submit">Submit</Button>
+                        <Button className="mb-2 col-md-4" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="primary" type="submit">Submit</Button>
                         <Form.Text className="text-muted">Not register yet?</Form.Text>
                         <NavLink tag={Link} className="text-info" to="/Register">Sign Up</NavLink>
                     </Form>

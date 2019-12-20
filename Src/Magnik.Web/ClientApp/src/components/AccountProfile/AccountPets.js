@@ -6,11 +6,11 @@ export class AccountPets extends Component {
     render() {
         return (
             <div className="mt-2">
-                <Card>
+                <Card style={{boxShadow: '5px 5px 10px #cccccc'}}>
                     <Card.Body>
                         <Row>
-                            <Col xs={6} md={4} className="text-center">
-                                <Button className="m-2" variant="outline-dark" size="sm">Add</Button>
+                            <Col xs={6} md={4}>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-dark" size="md">Add Pet</Button>
                             </Col>
                             <Col xs={12} md={8}>
                                 <p><em> - Is it possible to throw pets? If you got a cat, a dog, no matter who, they become a member of the family! This is the same as throwing your child into the street!</em></p>
@@ -32,44 +32,44 @@ export class AccountPets extends Component {
                     <tbody>
                         <tr>
                             <td className="text-center">
-                                <Image style={{ width: '81px', height: '81px', }} src={logo} alt="Logo" roundedCircle />
+                                <Image style={{ width: '81px', height: '81px', boxShadow: '5px 5px 10px #cccccc'}} src={logo} alt="Logo" roundedCircle />
                             </td>
                             <td className="text-center">Mark</td>
                             <td className="text-center">12</td>
                             <td className="text-center">30</td>
                             <td className="text-center">Boy</td>
                             <td className="text-center">
-                                <Button className="m-2" variant="outline-success" size="sm">View</Button>
-                                <Button className="m-2" variant="outline-info" size="sm">Update</Button>
-                                <Button className="m-2" variant="outline-danger" size="sm">Delete</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-success" size="sm">View</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-info" size="sm">Update</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-danger" size="sm">Delete</Button>
                             </td>
                         </tr>
                         <tr>
                             <td className="text-center">
-                                <Image style={{ width: '81px', height: '81px', }} src={logo} alt="Logo" roundedCircle />
+                                <Image style={{ width: '81px', height: '81px', boxShadow: '5px 5px 10px #cccccc'}} src={logo} alt="Logo" roundedCircle />
                             </td>
                             <td className="text-center">Mark</td>
                             <td className="text-center">12</td>
                             <td className="text-center">30</td>
                             <td className="text-center">Boy</td>
                             <td className="text-center">
-                                <Button className="m-2" variant="outline-success" size="sm">View</Button>
-                                <Button className="m-2" variant="outline-info" size="sm">Update</Button>
-                                <Button className="m-2" variant="outline-danger" size="sm">Delete</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-success" size="sm">View</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-info" size="sm">Update</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-danger" size="sm">Delete</Button>
                             </td>
                         </tr>
                         <tr>
                             <td className="text-center">
-                                <Image style={{ width: '81px', height: '81px', }} src={logo} alt="Logo" roundedCircle />
+                                <Image style={{ width: '81px', height: '81px', boxShadow: '5px 5px 10px #cccccc'}} src={logo} alt="Logo" roundedCircle />
                             </td>
                             <td className="text-center">Mark</td>
                             <td className="text-center">12</td>
                             <td className="text-center">30</td>
                             <td className="text-center">Boy</td>
                             <td className="text-center">
-                                <Button className="m-2" variant="outline-success" size="sm">View</Button>
-                                <Button className="m-2" variant="outline-info" size="sm">Update</Button>
-                                <Button className="m-2" variant="outline-danger" size="sm">Delete</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-success" size="sm">View</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-info" size="sm">Update</Button>
+                                <Button className="m-2" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="outline-danger" size="sm">Delete</Button>
                             </td>
                         </tr>
                     </tbody>

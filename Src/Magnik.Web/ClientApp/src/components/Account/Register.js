@@ -5,7 +5,7 @@ export class Register extends Component {
     render() {
         return (
             <Row>
-                <Card className="text-center border p-5 mb-4 col-md-6 offset-md-3 box-shadow" style={{ width: '23rem', backgroundColor: '#faf7f7' }}>
+                <Card className="text-center border p-5 mb-4 col-md-6 offset-md-3 box-shadow" style={{ width: '23rem', backgroundColor: '#faf7f7', boxShadow: '5px 5px 10px #cccccc' }}>
                     <Form>
                         <Form.Text className="m-4" style={{fontSize: '20pt'}}><strong>Sign Up</strong></Form.Text>
                         <Form.Group controlId="formBasicEmail">
@@ -28,7 +28,7 @@ export class Register extends Component {
                         <Form.Group controlId="formBasicConfirmPassword">
                             <Form.Control className="mb-2 col-md-8 offset-md-2" type="password" placeholder="Confirm Password" />
                         </Form.Group>
-                        <Button className="mb-2 col-md-4" variant="primary" type="submit">Submit</Button>
+                        <Button className="mb-2 col-md-4" style={{boxShadow: '5px 5px 10px #cccccc'}} variant="primary" type="submit">Submit</Button>
                     </Form>
                 </Card>
             </Row>
