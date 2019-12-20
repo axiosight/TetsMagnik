@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Magnik.WebClient.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -25,7 +24,7 @@ namespace Magnik.WebClient.Controllers
         public async Task<IActionResult> Register([FromForm]UserRegisterVM model)
         {
 
-            var result;
+            var result = await _accountService.CreateAccount(model);
 
             if (!result.Success)
             {
@@ -39,6 +38,31 @@ namespace Magnik.WebClient.Controllers
             {
                 Errors = new List<string>()
             });
+        }
+
+        [HttpPost(RoutesApi.Account.Login)]
+        public async Task<IActionResult> Login([FromForm]UserLoginVM model)
+        {
+            var authResponse = await _accountService.SignIn(model);
+
+            if (!authResponse.Success)
+            {
+                return BadRequest(new AuthentificationResult
+                {
+                    Errors = authResponse.Errors
+                });
+            }
+
+            return Ok(new AuthentificationResult
+            {
+                Errors = new List<string>()
+            });
+        }
+
+        [HttpPost(RoutesApi.Account.LogOut)]
+        public async Task Logout()
+        {
+            await _accountService.SignOut();
         }
 
     }

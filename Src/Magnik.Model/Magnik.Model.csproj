@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\AccountViewModel\" />
     <Folder Include="ViewModel\BreedViewModel\" />
     <Folder Include="ViewModel\TypeViewModel\" />
     <Folder Include="ViewModel\PetInfoViewModel\" />

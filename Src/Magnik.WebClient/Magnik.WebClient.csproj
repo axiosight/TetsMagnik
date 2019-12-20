@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Magnik.Common\Magnik.Common.csproj" />
     <ProjectReference Include="..\Magnik.DataProvider\Magnik.DataProvider.csproj" />
     <ProjectReference Include="..\Magnik.Logic\Magnik.Logic.csproj" />
     <ProjectReference Include="..\Magnik.Model\Magnik.Model.csproj" />

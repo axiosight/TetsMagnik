@@ -2,50 +2,82 @@
 using Magnik.Model.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Magnik.DataProvider.Repositories
 {
     public class AccountRepository : IAccountRepository
     {
-        public Task AddToRole(Account account)
+        private readonly UserManager<Account> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<Account> _signInManager;
+
+        public AccountRepository(UserManager<Account> userManager, RoleManager<IdentityRole> roleManager, SignInManager<Account> signInManager)
         {
-            throw new System.NotImplementedException();
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _signInManager = signInManager;
         }
 
-        public Task<IdentityResult> CreateAccount(Account account, string password)
+        public async Task AddToRolePetSitter(Account account)
         {
-            throw new System.NotImplementedException();
+            await _userManager.AddToRoleAsync(account, "sitter");
         }
 
-        public Task<Account> FindByIdAccount(string id)
+        public async Task<bool> CheckPassword(Account account, string password)
         {
-            throw new System.NotImplementedException();
+            return await _userManager.CheckPasswordAsync(account, password);
         }
 
-        public Task<Account> FindByNameAccount(string email)
+        public async Task<IdentityResult> CreateAccount(Account account, string password)
         {
-            throw new System.NotImplementedException();
+            IdentityResult result = await _userManager.CreateAsync(account, password);
+
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(account, false);
+                await _userManager.AddToRoleAsync(account, "user");
+            }
+
+            return result;
         }
 
-        public Task<IEnumerable<string>> GetAccountRoles(Account account)
+        public async Task<Account> FindByIdAccount(string id)
         {
-            throw new System.NotImplementedException();
+            return await _userManager.FindByIdAsync(id);
+        }
+
+        public async Task<Account> FindByNameAccount(string email)
+        {
+            return await _userManager.FindByNameAsync(email);
+        }
+
+        public async Task<string> GenerateEmailConfirmationToken(Account account)
+        {
+            string code = await _userManager.GenerateEmailConfirmationTokenAsync(account);
+
+            return code;
+        }
+
+        public async Task<IEnumerable<string>> GetAccountRoles(Account account)
+        {
+            return await _userManager.GetRolesAsync(account);
         }
 
         public IEnumerable<Account> GetAllUsers()
         {
-            throw new System.NotImplementedException();
+            return _userManager.Users.ToList();
         }
 
-        public Task<SignInResult> SignIn(string email, string password, bool rememberMe, bool flag)
+        public async Task<SignInResult> SignIn(string email, string password, bool rememberMe, bool flag)
         {
-            throw new System.NotImplementedException();
+            return await _signInManager.PasswordSignInAsync(email, password, rememberMe, flag);
         }
 
         public Task SignOut()
         {
-            throw new System.NotImplementedException();
+            return _signInManager.SignOutAsync();
         }
     }
 }

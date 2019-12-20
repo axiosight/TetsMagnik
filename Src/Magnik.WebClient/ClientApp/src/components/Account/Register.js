@@ -120,7 +120,7 @@ export class Register extends Component {
             form.append('password', this.state.password);
             form.append('passwordConfirm', this.state.confirmPassword);
 
-            let url = "api/v1/users/register";
+            let url = "api/account/register";
             let method = 'POST';
 
             let response = await fetch(url, {
@@ -205,7 +205,6 @@ export class Register extends Component {
                                     })
                                 }
                             </ul>
-
                         </ModalBody>
                     </Modal>
                     <Modal isOpen={this.state.modalError} >
