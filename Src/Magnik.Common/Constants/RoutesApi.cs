@@ -12,6 +12,7 @@ namespace Magnik.Common.Constants
             public const string Login = Root + "/account/login";
             public const string Register = Root + "/account/register";
             public const string LogOut = Root + "/account/logout";
+            public const string Get = Root + "/account/getAccount";
         }
 
     }

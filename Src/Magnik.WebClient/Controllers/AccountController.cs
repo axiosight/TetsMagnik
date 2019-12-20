@@ -65,5 +65,28 @@ namespace Magnik.WebClient.Controllers
             await _accountService.SignOut();
         }
 
+        [HttpGet(RoutesApi.Account.Get)]
+        public async Task<IActionResult> GetAccount()
+        {
+            var email = User.Identity.Name;
+
+            if (email != null)
+            {
+                var user = await _accountService.FindByEmail(email);
+
+                return Ok(new UserVM
+                {
+                    UserId = user.UserId,
+                    Email = user.Email,
+                    Roles = user.Roles
+                });
+            }
+
+            return Ok(new UserVM
+            {
+                Roles = new List<string>()
+            });
+        }
+
     }
 }

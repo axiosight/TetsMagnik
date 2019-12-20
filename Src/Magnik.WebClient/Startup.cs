@@ -76,8 +76,14 @@ namespace Magnik.WebClient
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseCookiePolicy();
+            app.UseAuthentication();
+
+            app.UseMvc();
 
             app.UseMvc(routes =>
             {

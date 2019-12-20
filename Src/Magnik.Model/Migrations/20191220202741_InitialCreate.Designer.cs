@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Magnik.Model.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191220105521_InitialCreate")]
+    [Migration("20191220202741_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

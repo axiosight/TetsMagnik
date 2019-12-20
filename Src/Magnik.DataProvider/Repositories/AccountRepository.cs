@@ -72,7 +72,7 @@ namespace Magnik.DataProvider.Repositories
 
         public async Task<SignInResult> SignIn(string email, string password, bool rememberMe, bool flag)
         {
-            return await _signInManager.PasswordSignInAsync(email, password, rememberMe, flag);
+            return await _signInManager.PasswordSignInAsync(email, password, rememberMe, false);
         }
 
         public Task SignOut()

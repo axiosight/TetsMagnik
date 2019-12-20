@@ -23,6 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\AccountController.cs~RF1604a737.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Magnik.Common\Magnik.Common.csproj" />
     <ProjectReference Include="..\Magnik.DataProvider\Magnik.DataProvider.csproj" />
     <ProjectReference Include="..\Magnik.Logic\Magnik.Logic.csproj" />
