@@ -20,10 +20,10 @@ namespace Magnik.Model.Entities
 
         [ForeignKey("AccountId")]
         public string AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
 
         [ForeignKey("OrderId")]
         public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

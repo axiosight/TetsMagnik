@@ -24,10 +24,10 @@ namespace Magnik.Model.Entities
 
         [ForeignKey("AccountId")]
         public string AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
 
-        public ICollection<PetInfo> PetInfos { get; set; }
+        public virtual ICollection<PetInfo> PetInfos { get; set; }
 
-        public TypePet TypePet { get; set; }
+        public virtual TypePet TypePet { get; set; }
     }
 }

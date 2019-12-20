@@ -16,8 +16,8 @@ namespace Magnik.Model.Entities
 
         [ForeignKey("PetId")]
         public int PetId { get; set; }
-        public Pet Pet { get; set; }
+        public virtual Pet Pet { get; set; }
 
-        public ICollection<Breed> Breeds { get; set; }
+        public virtual ICollection<Breed> Breeds { get; set; }
     }
 }

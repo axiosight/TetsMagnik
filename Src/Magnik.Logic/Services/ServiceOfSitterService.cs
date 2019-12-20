@@ -1,6 +1,8 @@
-﻿namespace Magnik.Logic.Services
+﻿using Magnik.Logic.Interfaces;
+
+namespace Magnik.Logic.Services
 {
-    public class ServiceOfSitterService
+    public class ServiceOfSitterService : IServiceOfSitterService
     {
         
     }

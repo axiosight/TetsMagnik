@@ -23,8 +23,8 @@ namespace Magnik.Model.Entities
 
         [ForeignKey("AccountId")]
         public string AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
 
-        public ServiceOfSitter ServiceOfSitter { get; set; }
+        public virtual ServiceOfSitter ServiceOfSitter { get; set; }
     }
 }

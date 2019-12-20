@@ -16,6 +16,6 @@ namespace Magnik.Model.Entities
 
         [ForeignKey("TypeId")]
         public int TypeId { get; set; }
-        public TypePet Type { get; set; }
+        public virtual TypePet Type { get; set; }
     }
 }

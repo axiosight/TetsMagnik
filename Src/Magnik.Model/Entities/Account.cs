@@ -19,12 +19,12 @@ namespace Magnik.Model.Entities
 
         public string Description { get; set; }
 
-        public ICollection<Pet> Pets { get; set; }
+        public virtual ICollection<Pet> Pets { get; set; }
 
-        public ICollection<ServiceOfSitter> ServiceOfSitters { get; set; }
+        public virtual ICollection<ServiceOfSitter> ServiceOfSitters { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
