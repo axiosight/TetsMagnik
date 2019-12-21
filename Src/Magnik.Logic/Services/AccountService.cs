@@ -29,7 +29,7 @@ namespace Magnik.Logic.Services
                 };
             }
 
-            Account account = new Account { Email = model.Email, UserName = model.Email };
+            Account account = new Account { Email = model.Email, UserName = model.Email, UName = model.Name, USurname = model.Surname, PhoneNumber = model.Mobile };
 
             var result = await _accountRepository.CreateAccount(account, model.Password);
 
@@ -63,6 +63,12 @@ namespace Magnik.Logic.Services
             {
                 UserId = account.Id,
                 Email = account.Email,
+                Name = account.UName,
+                Surame = account.USurname,
+                Street = account.Street,
+                ZIP = account.ZIP,
+                Mobile = account.PhoneNumber,
+                Desciption = account.Description,
                 Roles = userRoles
             };
         }

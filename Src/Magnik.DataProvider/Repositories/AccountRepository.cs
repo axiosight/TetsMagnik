@@ -38,6 +38,7 @@ namespace Magnik.DataProvider.Repositories
             {
                 await _signInManager.SignInAsync(account, false);
                 await _userManager.AddToRoleAsync(account, "user");
+                await _userManager.UpdateAsync(account);
             }
 
             return result;

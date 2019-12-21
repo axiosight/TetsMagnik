@@ -78,6 +78,12 @@ namespace Magnik.WebClient.Controllers
                 {
                     UserId = user.UserId,
                     Email = user.Email,
+                    Name = user.Name,
+                    Surame = user.Surame,
+                    Street = user.Street,
+                    Mobile = user.Mobile,
+                    ZIP = user.ZIP,
+                    Desciption = user.Desciption,
                     Roles = user.Roles
                 });
             }

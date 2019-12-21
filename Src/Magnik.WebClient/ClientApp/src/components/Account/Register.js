@@ -132,7 +132,7 @@ export class Register extends Component {
             let responseJson = "";
 
             if (response.ok) {
-                window.location.replace("/");
+                window.location.replace("/Profile");
             } else {
                 responseJson = response.json();
                 responseJson.then(results => {
