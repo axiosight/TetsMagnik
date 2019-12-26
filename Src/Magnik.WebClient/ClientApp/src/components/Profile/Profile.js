@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'react-bootstrap';
 import { ProfileInfo } from '../Profile/ProfileInfo';
 import { ProfilePets } from '../Profile/ProfilePets';
-import { ProfileServices } from '../Profile/ProfileServices';
+// import { ProfileServices } from '../Profile/ProfileServices';
 import { ProfileOrders } from '../Profile/ProfileOrders';
 
 export class Profile extends Component {
@@ -15,9 +15,9 @@ export class Profile extends Component {
                 <Tab eventKey="Pets" title="Pets">
                     <ProfilePets />
                 </Tab>
-                <Tab eventKey="Services" title="Services">
+                {/* <Tab eventKey="Services" title="Services">
                     <ProfileServices />
-                </Tab>
+                </Tab> */}
                 <Tab eventKey="Orders" title="Orders">
                     <ProfileOrders />
                 </Tab>

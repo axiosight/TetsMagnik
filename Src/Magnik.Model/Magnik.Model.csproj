@@ -10,7 +10,6 @@
     <Folder Include="ViewModel\PetInfoViewModel\" />
     <Folder Include="ViewModel\OrderViewModel\" />
     <Folder Include="ViewModel\ServiceOfSitterViewModel\" />
-    <Folder Include="ViewModel\PetViewModel\" />
   </ItemGroup>
 
   <ItemGroup>

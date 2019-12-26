@@ -1,4 +1,5 @@
-﻿using Magnik.Model.ViewModel.AccountViewModel;
+﻿using Magnik.Model.ViewModel;
+using Magnik.Model.ViewModel.AccountViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,5 +13,6 @@ namespace Magnik.Logic.Interfaces
         IEnumerable<UserVM> GetAll();
         Task<AuthentificationResult> SignIn(UserLoginVM model);
         Task SignOut();
+        Task<ResponseVM> UpdateAccount(UserVM model);
     }
 }

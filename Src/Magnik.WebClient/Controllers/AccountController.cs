@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Magnik.Common.Constants;
 using Magnik.Logic.Interfaces;
+using Magnik.Model.ViewModel;
 using Magnik.Model.ViewModel.AccountViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -92,6 +93,33 @@ namespace Magnik.WebClient.Controllers
             {
                 Roles = new List<string>()
             });
+        }
+
+        [HttpPost(RoutesApi.Account.UpdateAccount)]
+        public async Task<IActionResult> UpdateAccount([FromForm]UserVM model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var result = await _accountService.UpdateAccount(model);
+
+                if (result.Result)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return BadRequest(result);
+                }
+            }
+            else
+            {
+                return BadRequest(new ResponseVM()
+                {
+                    Result = false,
+                    Message = "Not Valid!"
+                });
+            }
         }
 
     }

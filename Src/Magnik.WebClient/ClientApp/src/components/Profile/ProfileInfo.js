@@ -10,14 +10,14 @@ export class ProfileInfo extends Component {
         this.state = {
             user: {},
             modalUpdateAccount: false,
-            email: "", emailIsValid: false,
-            name: "", nameIsValid: false,
-            surname: "", surnameIsValid: false,
-            mobile: "", mobileIsValid: false,
-            street: "", streetIsValid: false,
-            zip: "", zipIsValid: false,
-            description: "", descriptionIsValid: false,
-            errors: [],
+            email: "", emailIsValid: true,
+            name: "", nameIsValid: true,
+            surame: "", surnameIsValid: true,
+            mobile: "", mobileIsValid: true,
+            street: "", streetIsValid: true,
+            zip: "", zipIsValid: true,
+            description: "", descriptionIsValid: true,
+            errors: "",
             modalRegister: false,
             modalError: false
         };
@@ -45,8 +45,8 @@ export class ProfileInfo extends Component {
         return name.length > 2;
     }
 
-    validateSurname(surname) {
-        return surname.length > 2;
+    validateSurname(surame) {
+        return surame.length > 2;
     }
 
     validateMobile(mobile) {
@@ -75,7 +75,7 @@ export class ProfileInfo extends Component {
     onChangeSurname(e) {
         let val = e.target.value;
         let valid = this.validateSurname(val);
-        this.setState({ surname: val, surnameIsValid: valid });
+        this.setState({ surame: val, surnameIsValid: valid });
     }
 
     onChangeMobile(e) {
@@ -109,20 +109,19 @@ export class ProfileInfo extends Component {
     }
 
     async handleSubmit(e) {
-        this.setState({
-            modalUpdateAccount: !this.state.modalUpdateAccount
-        });
-
         e.preventDefault();
 
+        debugger;
         if (this.state.nameIsValid === true && this.state.surnameIsValid === true && this.state.mobileIsValid === true && this.state.streetIsValid === true && this.state.zipIsValid === true && this.state.descriptionIsValid === true) {
+
             let form = new FormData();
+            form.append('userId', this.state.user.userId);
             form.append('name', this.state.name);
-            form.append('surname', this.state.surname);
+            form.append('surame', this.state.surame);
             form.append('mobile', this.state.mobile);
             form.append('street', this.state.street);
             form.append('zip', this.state.zip);
-            form.append('description', this.state.description);
+            form.append('desciption', this.state.description);
 
             let url = "api/account/updateAccount";
             let method = 'POST';
@@ -140,19 +139,16 @@ export class ProfileInfo extends Component {
             } else {
                 responseJson = response.json();
                 responseJson.then(results => {
-                    this.setState({ errors: results.errors });
+                    this.setState({ errors: results.message });
 
-                    if (this.state.errors.length > 0) {
-                        this.setState({ modalRegister: !this.state.modalRegister });
-                    }
+                    this.setState({ modalError: !this.state.modalError });
+
                 });
 
             }
         }
         else {
-            this.setState({
-                modalError: !this.state.modalError
-            });
+            alert("Not Valid Data!");
         }
     }
 
@@ -160,31 +156,32 @@ export class ProfileInfo extends Component {
         let nameColor = this.state.nameIsValid === true ? "green" : "lightGray";
         let surnameColor = this.state.surnameIsValid === true ? "green" : "lightGray";
         let mobileColor = this.state.mobileIsValid === true ? "green" : "lightGray";
-        let streetColor = this.state.passwordIsValid === true ? "green" : "lightGray";
-        let zipColor = this.state.confirmPasswordIsValid === true ? "green" : "lightGray";
-        let descriptionColor = this.state.confirmPasswordIsValid === true ? "green" : "lightGray";
+        let streetColor = this.state.streetIsValid === true ? "green" : "lightGray";
+        let zipColor = this.state.zipIsValid === true ? "green" : "lightGray";
+        let descriptionColor = this.state.descriptionIsValid === true ? "green" : "lightGray";
 
         return (
             <Card className="text-center border p-5 box-shadow" style={{ width: 'auto', margin: '0 auto' }}>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicName">
-                        <Form.Control onChange={this.onChangeName} value={this.state.user.name} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your name" style={{ borderColor: nameColor }} />
+                        <Form.Control onChange={this.onChangeName} value={this.state.name} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your name" style={{ borderColor: nameColor }} />
                     </Form.Group>
                     <Form.Group controlId="formBasicSurname">
-                        <Form.Control onChange={this.onChangeSurname} value={this.state.user.surname} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your surname" style={{ borderColor: surnameColor }} />
+                        <Form.Control onChange={this.onChangeSurname} value={this.state.surame} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your surname" style={{ borderColor: surnameColor }} />
                     </Form.Group>
                     <Form.Group controlId="formBasicPhone">
-                        <Form.Control onChange={this.onChangeMobile} value={this.state.user.mobile} className="mb-2 col-md-8 offset-md-2" type="tel" placeholder="Enter your phone" style={{ borderColor: mobileColor }} />
+                        <Form.Control onChange={this.onChangeMobile} value={this.state.mobile} className="mb-2 col-md-8 offset-md-2" type="tel" placeholder="Enter your phone" style={{ borderColor: mobileColor }} />
                         <Form.Text className="text-muted">Format for tel 375(XX)XXX-XX-XX</Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formBasicStreet">
-                        <Form.Control onChange={this.onChangeStreet} value={this.state.user.street} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your street" style={{ borderColor: streetColor }} />
+                        <Form.Control onChange={this.onChangeStreet} value={this.state.street} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your street" style={{ borderColor: streetColor }} />
                     </Form.Group>
                     <Form.Group controlId="formBasicZIP">
-                        <Form.Control onChange={this.onChangeZIP} value={this.state.user.zip} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your zip" style={{ borderColor: zipColor }} />
+                        <Form.Control onChange={this.onChangeZip} value={this.state.zip} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="Enter your zip" style={{ borderColor: zipColor }} />
+                        <Form.Text className="text-muted">Format for ZIP ex. 222000</Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formBasicDescription">
-                        <Form.Control onChange={this.onChangeDescription} value={this.state.user.description} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="About you" style={{ borderColor: descriptionColor }} />
+                        <Form.Control onChange={this.onChangeDescription} value={this.state.description} className="mb-2 col-md-8 offset-md-2" type="text" placeholder="About you" style={{ borderColor: descriptionColor }} />
                     </Form.Group>
                     <Button className="mb-2 col-md-4" style={{ boxShadow: '5px 5px 10px #cccccc' }} variant="primary" type="submit">Update</Button>
                 </Form>
@@ -200,8 +197,16 @@ export class ProfileInfo extends Component {
         if (response.ok) {
             let responseJson = response.json();
             responseJson.then(results => {
+                // console.log(results);
+
                 this.setState({
-                    user: results
+                    user: results,
+                    name: results.name,
+                    surame: results.surame,
+                    mobile: results.mobile,
+                    street: results.street,
+                    zip: results.zip,
+                    description: results.desciption
                 });
             });
         }
@@ -243,11 +248,11 @@ export class ProfileInfo extends Component {
                                 <Card.Text>
                                     <hr />
                                     <p><b>Name: </b>{this.state.user.name}</p>
-                                    <p><b>Surname: </b>{this.state.user.surname}</p>
+                                    <p><b>Surname: </b>{this.state.user.surame}</p>
                                     <p><b>Phone +</b>{this.state.user.mobile}</p>
                                     <p><b>Street: </b>{this.state.user.street}</p>
                                     <p><b>ZIP: </b>{this.state.user.zip}</p>
-                                    <p><b>About you: </b>{this.state.user.description}</p>
+                                    <p><b>About you: </b>{this.state.user.desciption}</p>
                                     <hr />
                                 </Card.Text>
                             </Card.Body>
@@ -262,6 +267,14 @@ export class ProfileInfo extends Component {
                         <ModalBody>
                             {this.renderUpdateModal()}
                         </ModalBody>
+                    </Modal>
+                    <Modal>
+                        <Modal isOpen={this.state.modalError} >
+                            <ModalHeader toggle={this.modalError} >Error</ModalHeader>
+                            <ModalBody>
+                                <p>{this.state.errors}</p>
+                            </ModalBody>
+                        </Modal>
                     </Modal>
                 </div>
             </div>

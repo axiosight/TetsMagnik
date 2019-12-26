@@ -13,6 +13,15 @@ namespace Magnik.Common.Constants
             public const string Register = Root + "/account/register";
             public const string LogOut = Root + "/account/logout";
             public const string Get = Root + "/account/getAccount";
+            public const string UpdateAccount = Root + "/account/updateAccount";
+        }
+
+        public static class Pet
+        {
+            public const string AddPet = Root + "/pet/addPet";
+            public const string DeletePet = Root + "/pet/deletePet/{id}";
+            public const string UpdatePet = Root + "/pet/updatePet";
+            public const string ViewAllPetsOfAccount = Root + "/pet/getPetsAccount";
         }
 
     }

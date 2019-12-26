@@ -1,7 +1,10 @@
 ﻿using Magnik.DataProvider.Interfaces;
 using Magnik.Logic.Interfaces;
+using Magnik.Model.Context.CommitProvider;
 using Magnik.Model.Entities;
+using Magnik.Model.ViewModel;
 using Magnik.Model.ViewModel.AccountViewModel;
+using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,10 +14,14 @@ namespace Magnik.Logic.Services
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _accountRepository;
+        private readonly UserManager<Account> _userManager;
+        private readonly ICommitProvider _commitProvider;
 
-        public AccountService(IAccountRepository accountRepository)
+        public AccountService(IAccountRepository accountRepository, ICommitProvider commitProvider, UserManager<Account> userManager)
         {
             _accountRepository = accountRepository;
+            _commitProvider = commitProvider;
+            _userManager = userManager;
         }
 
         public async Task<AuthentificationResult> CreateAccount(UserRegisterVM model)
@@ -80,7 +87,13 @@ namespace Magnik.Logic.Services
             return new UserVM
             {
                 UserId = user.Id,
-                Email = user.Email
+                Email = user.Email,
+                Name = user.UName,
+                Surame = user.USurname,
+                Mobile = user.PhoneNumber,
+                Street = user.Street,
+                ZIP = user.ZIP,
+                Desciption = user.Description
             };
         }
 
@@ -130,5 +143,38 @@ namespace Magnik.Logic.Services
         {
             await _accountRepository.SignOut();
         }
+
+        public async Task<ResponseVM> UpdateAccount(UserVM model)
+        {
+            bool result = false;
+
+            var account = await _accountRepository.FindByIdAccount(model.UserId);
+            if(account != null)
+            {
+                account.UName = model.Name;
+                account.USurname = model.Surame;
+                account.PhoneNumber = model.Mobile;
+                account.Street = model.Street;
+                account.ZIP = model.ZIP;
+                account.Description = model.Desciption;
+
+                await _userManager.UpdateAsync(account);
+
+                return new ResponseVM()
+                {
+                    Result = true,
+                    Message = $"Success!"
+                };
+            }
+            else
+            {
+                return new ResponseVM()
+                {
+                    Result = result,
+                    Message = $"Can't find account with id = {model.UserId.ToString()}"
+                };
+            }
+        }
+
     }
 }
