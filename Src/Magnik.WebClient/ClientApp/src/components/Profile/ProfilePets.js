@@ -82,7 +82,6 @@ export class ProfilePets extends Component {
     }
 
     async loadData() {
-        debugger;
         let url = "api/pet/getPetsAccount";
 
         let response = await fetch(url);

@@ -109,6 +109,22 @@ namespace Magnik.Logic.Services
             return users;
         }
 
+        public IEnumerable<UserVM> GetAllSitters()
+        {
+            var users = _accountRepository.GetAllSitters().Result.Select(x=> new UserVM
+            {
+                UserId = x.Id,
+                Email = x.Email,
+                Name = x.UName,
+                Surame = x.USurname,
+                Street = x.Street,
+                Mobile = x.PhoneNumber,
+                Desciption = x.Description,
+                ZIP = x.ZIP
+            });
+            return users;
+        }
+
         public async Task<AuthentificationResult> SignIn(UserLoginVM model)
         {
             var account = await _accountRepository.FindByNameAccount(model.Email);
@@ -175,6 +191,5 @@ namespace Magnik.Logic.Services
                 };
             }
         }
-
     }
 }

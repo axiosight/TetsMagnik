@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ProfileComments } from './ProfileComments';
 import { Card, Image, Button, Row, Col, Form } from 'react-bootstrap';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import logo from '../StaticFiles/ava.png';
@@ -9,6 +10,7 @@ export class ProfileInfo extends Component {
 
         this.state = {
             user: {},
+            comments: [],
             modalUpdateAccount: false,
             email: "", emailIsValid: true,
             name: "", nameIsValid: true,
@@ -212,8 +214,26 @@ export class ProfileInfo extends Component {
         }
     }
 
+    async loadCommentData() {
+        let url = "api/comment/getCommentOfAccount";
+
+        let response = await fetch(url);
+
+        if (response.ok) {
+            let responseJson = response.json();
+            responseJson.then(results => {
+                console.log(results);
+
+                this.setState({
+                    comments: results
+                });
+            });
+        }
+    }
+
     async componentDidMount() {
         await this.loadData();
+        await this.loadCommentData();
     }
 
     render() {
@@ -232,12 +252,10 @@ export class ProfileInfo extends Component {
                         </Card>
                         <Card className="mb-2" style={{ width: '23rem', boxShadow: '5px 5px 10px #cccccc' }}>
                             <Card.Body>
-                                <Card.Text>
-                                    <p className="text-center"><em>Comments: </em></p>
-                                    <hr />
-                                    <code>Now you dont have any commnents..</code>
-                                    <hr />
-                                </Card.Text>
+                                <p className="text-center"><em>Comments: </em></p>
+                                <hr />
+                                <ProfileComments dataComments={this.state.comments} />
+                                <hr />
                             </Card.Body>
                         </Card>
                     </Col>

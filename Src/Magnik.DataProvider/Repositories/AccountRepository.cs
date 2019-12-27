@@ -1,6 +1,8 @@
 ﻿using Magnik.DataProvider.Interfaces;
+using Magnik.Model.Context;
 using Magnik.Model.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,15 +11,17 @@ namespace Magnik.DataProvider.Repositories
 {
     public class AccountRepository : IAccountRepository
     {
+        private readonly IDatabaseContext _databaseContext;
         private readonly UserManager<Account> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<Account> _signInManager;
 
-        public AccountRepository(UserManager<Account> userManager, RoleManager<IdentityRole> roleManager, SignInManager<Account> signInManager)
+        public AccountRepository(UserManager<Account> userManager, RoleManager<IdentityRole> roleManager, SignInManager<Account> signInManager, IDatabaseContext databaseContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
+            _databaseContext = databaseContext;
         }
 
         public async Task AddToRolePetSitter(Account account)
@@ -69,6 +73,11 @@ namespace Magnik.DataProvider.Repositories
         public IEnumerable<Account> GetAllUsers()
         {
             return _userManager.Users.ToList();
+        }
+
+        public async Task<IEnumerable<Account>> GetAllSitters()
+        {
+            return await _userManager.GetUsersInRoleAsync("sitter");
         }
 
         public async Task<SignInResult> SignIn(string email, string password, bool rememberMe, bool flag)

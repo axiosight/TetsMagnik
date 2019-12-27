@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Magnik.DataProvider.Interfaces;
 using Magnik.Model.Context;
 using Magnik.Model.Entities;
@@ -26,6 +27,13 @@ namespace Magnik.DataProvider.Repositories
             _databaseContext.Comments.Remove(item);
         }
 
+        public bool DeleteById(int Id)
+        {
+            Comment item = _databaseContext.Comments.Find(Id);
+            _databaseContext.Comments.Remove(item);
+            return true;
+        }
+
         public Comment Get(int id)
         {
             return _databaseContext.Comments.Find(id);
@@ -34,6 +42,11 @@ namespace Magnik.DataProvider.Repositories
         public IEnumerable<Comment> GetAll()
         {
             return _databaseContext.Comments;
+        }
+
+        public IEnumerable<Comment> GetCommentsOfAccount(string id)
+        {
+            return _databaseContext.Comments.Where(x => x.AccountId.Equals(id));
         }
 
         public void Update(Comment item)

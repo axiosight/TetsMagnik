@@ -14,6 +14,7 @@ namespace Magnik.DataProvider.Interfaces
         Task<Account> FindByIdAccount(string id);
         Task<Account> FindByNameAccount(string email);
         IEnumerable<Account> GetAllUsers();
+        Task<IEnumerable<Account>> GetAllSitters();
         Task AddToRolePetSitter(Account account);
         Task<IEnumerable<string>> GetAccountRoles(Account account);
         Task<string> GenerateEmailConfirmationToken(Account account);

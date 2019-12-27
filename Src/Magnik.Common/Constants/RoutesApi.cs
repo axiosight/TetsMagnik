@@ -24,5 +24,17 @@ namespace Magnik.Common.Constants
             public const string ViewAllPetsOfAccount = Root + "/pet/getPetsAccount";
         }
 
+        public static class Sitter
+        {
+            public const string GetAllSitters = Root + "/sitter/getAllSitters";
+        }
+
+        public static class Comment
+        {
+            public const string AddComment = Root + "/comment/addComment";
+            public const string DeleteComment = Root + "/comment/deleteComment/{id}";
+            public const string GetCommentsOfAccount = Root + "/comment/getCommentOfAccount";
+        }
+
     }
 }
