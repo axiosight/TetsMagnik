@@ -22,7 +22,7 @@ export class AccountOrders extends Component {
                         <td className="text-center">
                             <Button className="m-2" variant="outline-info" size="sm">View</Button>
                         </td>
-                        <td className="text-center">07/11/2019 14:00</td>
+                        <td c6lassName="text-center">07/11/2019 14:00</td>
                         <td className="text-center">09/11/2019 14:00</td>
                         <td className="text-center">Doggy day care</td>
                         <td className="text-center">100 $<em>per day</em></td>

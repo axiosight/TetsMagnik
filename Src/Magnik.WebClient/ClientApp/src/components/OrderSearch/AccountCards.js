@@ -18,7 +18,7 @@ const Services = [
     { label: "Drop-in visits", value: 'dropvisits' },
     { label: "Dog Walking", value: 'walk' },
     { label: "Doggy day care", value: 'daycare' }
-  ];
+];
 
 class CardItem extends Component {
 
@@ -29,15 +29,21 @@ class CardItem extends Component {
             modalOrder: false,
             modalAddComment: false,
             title: "", titleIsValid: false,
-            message: "", messageIsValid: false
+            message: "", messageIsValid: false,
+            dateFrom: "", dateFromIsValid: false,
+            dateTo: "", dateToIsValid: false,
+            serviceName: "", serviceNameIsValid: false
         }
 
         this.modalOrder = this.modalOrder.bind(this);
         this.modalAddComment = this.modalAddComment.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeMessage = this.onChangeMessage.bind(this);
+        this.onChangeDateFrom = this.onChangeDateFrom.bind(this);
+        this.onChangeDateTo = this.onChangeDateTo.bind(this);
+        this.onChangeServiceName = this.onChangeServiceName.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-
+        this.handleOrderSubmit = this.handleOrderSubmit.bind(this);
     }
 
     validateTitle(title) {
@@ -46,6 +52,30 @@ class CardItem extends Component {
 
     validateMessage(message) {
         return message.length > 2;
+    }
+
+    validateDateFrom(dateFrom) {
+        return dateFrom != null;
+    }
+
+    validateServiceName(serviceName){
+        return serviceName != null;
+    }
+
+    validateDateTo(dateTo) {
+        return dateTo != null;
+    }
+
+    onChangeDateFrom(e) {
+        let val = e.target.value;
+        let valid = this.validateDateFrom(val);
+        this.setState({ title: val, dateFromIsValid: valid })
+    }
+
+    onChangeDateTo(e) {
+        let val = e.target.value;
+        let valid = this.validateDateTo(val);
+        this.setState({ title: val, dateToIsValid: valid })
     }
 
     onChangeTitle(e) {
@@ -60,6 +90,12 @@ class CardItem extends Component {
         this.setState({ message: val, messageIsValid: valid });
     }
 
+    onChangeServiceName(e){
+        let val = e.target.value;
+        let valid = this.validateServiceName(val);
+        this.setState({serviceName: val, serviceNameIsValid: valid})
+    }
+
     modalOrder() {
         this.setState({
             modalOrder: !this.state.modalOrder
@@ -72,12 +108,12 @@ class CardItem extends Component {
         });
     }
 
-    async handleCommentSubmit(e){
+    async handleCommentSubmit(e) {
         e.preventDefault();
 
         debugger;
         if (this.state.titleIsValid === true && this.state.messageIsValid === true) {
-            
+
             let form = new FormData();
             form.append('accountId', this.props.id);
             form.append('title', this.state.title);
@@ -114,18 +150,62 @@ class CardItem extends Component {
         }
     }
 
+    async handleOrderSubmit(e) {
+        e.preventDefault();
+
+        debugger;
+        if (this.state.dateFromIsValid === true && this.state.dateToIsValid === true && this.state.serviceNameIsValid === true) {
+
+            let form = new FormData();
+            form.append('accountId', this.props.id);
+            form.append('startDateTime', this.state.dateFrom);
+            form.append('endDateTime', this.state.dateTo);
+
+            let url = "api/order/addOrder";
+            let method = 'POST';
+
+            let response = await fetch(url, {
+                method: method,
+                mode: 'cors',
+                body: form
+            });
+
+            console.log(response);
+            let responseJson = "";
+
+            if (response.ok) {
+                window.location.replace("/FindSitters");
+                alert("Order Add!")
+            } else {
+                responseJson = response.json();
+                responseJson.then(results => {
+                    this.setState({ errors: results.message });
+
+                    this.setState({ modalError: !this.state.modalError });
+                });
+
+            }
+        }
+        else {
+            alert("Not Valid Data!");
+        }
+    }
+
     renderModalOrder() {
+        let dateFromColor = this.state.dateFromIsValid === true ? "green" : "lightGray";
+        let dateFromTo = this.state.dateToIsValid === true ? "green" : "lightGray";
+        let serviceNameColor = this.state.serviceNameIsValid === true ? "green" : "lightGray";
         return (
             <Card className="text-center border p-5 box-shadow" style={{ width: 'auto', margin: '0 auto' }}>
                 <Form onSubmit={this.handleOrderSubmit}>
                     <Form.Group controlId="formDateFrom">
-                        <Form.Control onChange={this.onChangeName} value={this.state.name} className="mb-2 col-md-8 offset-md-2" type="date" placeholder="DateFrom" />
+                        <Form.Control onChange={this.onChangeName} value={this.state.name} className="mb-2 col-md-8 offset-md-2" type="date" placeholder="DateFrom" style={{ borderColor: dateFromColor }} />
                     </Form.Group>
                     <Form.Group controlId="formDateTo">
-                        <Form.Control onChange={this.onChangeName} value={this.state.name} className="mb-2 col-md-8 offset-md-2" type="date" placeholder="DateFrom" />
+                        <Form.Control onChange={this.onChangeName} value={this.state.name} className="mb-2 col-md-8 offset-md-2" type="date" placeholder="DateFrom" style={{ borderColor: dateFromTo }}/>
                     </Form.Group>
                     <Form.Group>
-                        <Select options={Services} className="mb-2 col-md-8 offset-md-2"/>
+                        <Select options={Services} className="mb-2 col-md-8 offset-md-2" style={{ borderColor: serviceNameColor }}/>
                     </Form.Group>
                     <Button className="mb-2 col-md-4" style={{ boxShadow: '5px 5px 10px #cccccc' }} variant="primary" type="submit">Submit</Button>
                 </Form>

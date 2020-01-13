@@ -36,5 +36,12 @@ namespace Magnik.Common.Constants
             public const string GetCommentsOfAccount = Root + "/comment/getCommentOfAccount";
         }
 
+        public static class Order
+        {
+            public const string AddOrder = Root + "/order/addOrder";
+            public const string DeleteOrder = Root + "/order/deleteOrder/{id}";
+            public const string GetOrder = Root + "/order/getOrder";
+        }
+
     }
 }

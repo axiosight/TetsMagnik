@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { OrdersTable } from './OrdersTable';
 
 export class ProfileServices extends Component {
-    render(){
-        return(
+
+    render() {
+        return (
             <div>
-                AccountServices
+                sdfgtj
             </div>
         );
     }

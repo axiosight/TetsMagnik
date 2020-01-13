@@ -8,7 +8,6 @@
     <Folder Include="ViewModel\BreedViewModel\" />
     <Folder Include="ViewModel\TypeViewModel\" />
     <Folder Include="ViewModel\PetInfoViewModel\" />
-    <Folder Include="ViewModel\OrderViewModel\" />
     <Folder Include="ViewModel\ServiceOfSitterViewModel\" />
   </ItemGroup>
 
